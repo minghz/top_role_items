@@ -10,9 +10,3 @@ config :top_role_items, TopRoleItemsWeb.Endpoint,
 config :logger, level: :warn
 
 # Configure your database
-config :top_role_items, TopRoleItems.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "top_role_items_test",
-  hostname: "localhost",
-  pool: Ecto.Adapters.SQL.Sandbox
