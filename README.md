@@ -1,3 +1,5 @@
+![](https://github.com/minghz/top_role_items/workflows/Tests/badge.svg)
+
 # TopRoleItems
 
 API endpoint to serve data of D&D items
