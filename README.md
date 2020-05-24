@@ -1,4 +1,4 @@
-![](https://github.com/minghz/top_role_items/workflows/Tests/badge.svg)
+![](https://github.com/minghz/top_role_items/workflows/Elixir%20CI/badge.svg)
 
 # TopRoleItems
 
