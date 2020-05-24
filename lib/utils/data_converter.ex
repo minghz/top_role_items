@@ -37,7 +37,7 @@ defmodule Utils.DataConverter do
   defp read_items(file_path, root_key) do
     case File.read(file_path) do
       {:ok, content} -> Jason.decode!(content) |> Map.get(root_key)
-      {:error, reason} -> Logger.error("Could not read file #{file_path}")
+      {:error, _} -> Logger.error("Could not read file #{file_path}")
     end
   end
 end
