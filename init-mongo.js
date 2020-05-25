@@ -1,4 +1,4 @@
-db.meta.insert({type: "initialize database"})
+db.createCollection("items")
 
 db.createUser(
   {
