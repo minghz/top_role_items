@@ -35,15 +35,17 @@ defmodule TopRoleItems.MixProject do
     [
       {:phoenix, "~> 1.4.3"},
       {:phoenix_pubsub, "~> 1.1"},
-      {:phoenix_ecto, "~> 4.0"},
-      {:ecto_sql, "~> 3.0"},
-      {:postgrex, ">= 0.0.0"},
+      #{:phoenix_ecto, "~> 4.0"},
+#      {:ecto_sql, "~> 3.0"},
+      #{:postgrex, ">= 0.0.0"},
       {:phoenix_html, "~> 2.11"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:mix_test_watch, "~> 1.0", only: :dev, runtime: false}
+      {:mix_test_watch, "~> 1.0", only: :dev, runtime: false},
+      {:mongodb, ">= 0.0.0"},
+      {:poolboy, ">= 0.0.0"}
     ]
   end
 
@@ -55,9 +57,9 @@ defmodule TopRoleItems.MixProject do
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
     [
-      "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
-      "ecto.reset": ["ecto.drop", "ecto.setup"],
-      test: ["ecto.create --quiet", "ecto.migrate", "test"]
+#      "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
+#      "ecto.reset": ["ecto.drop", "ecto.setup"],
+#      test: ["ecto.create --quiet", "ecto.migrate", "test"]
     ]
   end
 end

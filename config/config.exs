@@ -7,9 +7,6 @@
 # General application configuration
 use Mix.Config
 
-config :top_role_items,
-  ecto_repos: [TopRoleItems.Repo]
-
 # Configures the endpoint
 config :top_role_items, TopRoleItemsWeb.Endpoint,
   url: [host: "localhost"],

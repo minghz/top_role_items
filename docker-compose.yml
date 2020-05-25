@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+
+  mongo:
+    image: mongo:latest
+    container_name: top_role_items_mongo
+    environment:
+      MONGO_INITDB_DATABASE: top_role_items_db
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data_container:/data/db
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - ./_build:/app/_build
+
+  app:
+    build:
+      context: .
+    container_name: top_role_items_app
+    ports:
+      - "4000:4000"
+    depends_on:
+      - mongo
+    volumes:
+      - ./:/app
+    command: mix phx.server
+
+volumes:
+  mongodb_data_container:

@@ -6,20 +6,28 @@ defmodule TopRoleItems.Application do
   use Application
 
   def start(_type, _args) do
-    # List all child processes to be supervised
+    import Supervisor.Spec
+
     children = [
-      # Start the Ecto repository
-      TopRoleItems.Repo,
-      # Start the endpoint when the application starts
-      TopRoleItemsWeb.Endpoint
-      # Starts a worker by calling: TopRoleItems.Worker.start_link(arg)
-      # {TopRoleItems.Worker, arg},
+      TopRoleItemsWeb.Endpoint,
+      worker(
+        Mongo,
+        [[
+          database: "top_role_items_db",
+          hostname: "mongo",
+          username: "root",
+          password: "rootpassword"
+        ]]
+      )
+      #worker(Mongo, [[url: "mongodb://mongo:27017/top_role_items_db"]])
     ]
 
-    # See https://hexdocs.pm/elixir/Supervisor.html
-    # for other strategies and supported options
     opts = [strategy: :one_for_one, name: TopRoleItems.Supervisor]
-    Supervisor.start_link(children, opts)
+    result = Supervisor.start_link(children, opts)
+
+    TopRoleItems.Startup.ensure_indexes
+
+    result
   end
 
   # Tell Phoenix to update the endpoint configuration

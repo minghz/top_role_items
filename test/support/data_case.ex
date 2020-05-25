@@ -16,8 +16,6 @@ defmodule TopRoleItems.DataCase do
 
   using do
     quote do
-      alias TopRoleItems.Repo
-
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
@@ -25,13 +23,7 @@ defmodule TopRoleItems.DataCase do
     end
   end
 
-  setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(TopRoleItems.Repo)
-
-    unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(TopRoleItems.Repo, {:shared, self()})
-    end
-
+  setup _ do
     :ok
   end
 

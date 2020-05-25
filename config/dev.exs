@@ -67,9 +67,4 @@ config :phoenix, :stacktrace_depth, 20
 config :phoenix, :plug_init_mode, :runtime
 
 # Configure your database
-config :top_role_items, TopRoleItems.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "top_role_items_dev",
-  hostname: "localhost",
-  pool_size: 10
+
