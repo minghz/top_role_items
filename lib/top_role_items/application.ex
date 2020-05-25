@@ -10,7 +10,16 @@ defmodule TopRoleItems.Application do
 
     children = [
       TopRoleItemsWeb.Endpoint,
-      worker(Mongo, [[name: :mongo, database: "top_role_items_dev"]])
+      worker(
+        Mongo,
+        [[
+          database: "top_role_items_db",
+          hostname: "mongo",
+          username: "root",
+          password: "rootpassword"
+        ]]
+      )
+      #worker(Mongo, [[url: "mongodb://mongo:27017/top_role_items_db"]])
     ]
 
     opts = [strategy: :one_for_one, name: TopRoleItems.Supervisor]
