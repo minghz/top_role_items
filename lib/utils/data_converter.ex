@@ -12,7 +12,7 @@ defmodule Utils.DataConverter do
   # The seeding script that invokes this module would be responsible for
   # inserting the document entries into the DB
 
-  @data_dir "#{:code.priv_dir(:top_role_items)}/repo/data/5eTools"
+  @data_dir "#{File.cwd!}/priv/repo/data/5eTools"
 
   def fetch_items() do
     base_items = read_items("#{@data_dir}/items-base.json", "baseitem")
